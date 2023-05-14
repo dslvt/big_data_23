@@ -24,11 +24,11 @@ def display_main():
     Displaying project info and overall information
     """
 
-    data = pd.read_csv("../data/data_prepared.csv")
-    target = pd.read_csv("../output/EDA_outputs/targer_dist.csv")
-    coordinates = pd.read_csv("../output/EDA_outputs/coordinates.csv")
-    time = pd.read_csv("../output/EDA_outputs/times.csv", parse_dates=["start_time"])
-    distance = pd.read_csv("../output/EDA_outputs/severity_distance.csv")
+    data = pd.read_csv("data/data_prepared.csv")
+    target = pd.read_csv("output/EDA_outputs/targer_dist.csv")
+    coordinates = pd.read_csv("output/EDA_outputs/coordinates.csv")
+    time = pd.read_csv("output/EDA_outputs/times.csv", parse_dates=["start_time"])
+    distance = pd.read_csv("output/EDA_outputs/severity_distance.csv")
 
     st.header("Big Data Project")
     st.write("Authors: Timur Sergeev, Salavat Dinmukhametov")
@@ -95,11 +95,11 @@ def display_twilight():
     """
 
     astronomical_twilight = pd.read_csv(
-        "../output/EDA_outputs/severity_from_astronomical_twilight.csv"
+        "output/EDA_outputs/severity_from_astronomical_twilight.csv"
     )
-    civil_twilight = pd.read_csv("../output/EDA_outputs/severity_from_civil_twilight.csv")
-    nautical_twilight = pd.read_csv("../output/EDA_outputs/severity_from_nautical_twilight.csv")
-    sunrise_sunset = pd.read_csv("../output/EDA_outputs/severity_from_sunrise_sunset.csv")
+    civil_twilight = pd.read_csv("output/EDA_outputs/severity_from_civil_twilight.csv")
+    nautical_twilight = pd.read_csv("output/EDA_outputs/severity_from_nautical_twilight.csv")
+    sunrise_sunset = pd.read_csv("output/EDA_outputs/severity_from_sunrise_sunset.csv")
 
     st.subheader("Astronomical Twilight")
     st.markdown(
@@ -222,9 +222,9 @@ def display_weather():
     """
     Printing weather information
     """
-    pressure = pd.read_csv("../output/EDA_outputs/severity_from_pressure.csv")
-    humidity = pd.read_csv("../output/EDA_outputs/severity_from_humidity.csv")
-    visibility = pd.read_csv("../output/EDA_outputs/severity_from_visibility.csv")
+    pressure = pd.read_csv("output/EDA_outputs/severity_from_pressure.csv")
+    humidity = pd.read_csv("output/EDA_outputs/severity_from_humidity.csv")
+    visibility = pd.read_csv("output/EDA_outputs/severity_from_visibility.csv")
 
     st.subheader("Pressure")
     pressure = pressure.set_index("severity")
@@ -249,9 +249,9 @@ def display_poi():
     """
     Printing point of interest objects
     """
-    railway = pd.read_csv("../output/EDA_outputs/severity_from_railway.csv")
-    roundabout = pd.read_csv("../output/EDA_outputs/severity_from_roundabout.csv")
-    station = pd.read_csv("../output/EDA_outputs/severity_from_station.csv")
+    railway = pd.read_csv("output/EDA_outputs/severity_from_railway.csv")
+    roundabout = pd.read_csv("output/EDA_outputs/severity_from_roundabout.csv")
+    station = pd.read_csv("output/EDA_outputs/severity_from_station.csv")
 
     st.subheader("Railway")
     railway = railway.groupby(["severity", "railway"]).first().unstack(level=-1)
@@ -325,10 +325,10 @@ def display_traffic_info():
     """
     Printing traffic signs
     """
-    stop = pd.read_csv("../output/EDA_outputs/severity_from_stop.csv")
-    turning_loop = pd.read_csv("../output/EDA_outputs/severity_from_turning_loop.csv")
-    traffic_signal = pd.read_csv("../output/EDA_outputs/severity_from_traffic_signal.csv")
-    traffic_calming = pd.read_csv("../output/EDA_outputs/severity_from_traffic_calming.csv")
+    stop = pd.read_csv("output/EDA_outputs/severity_from_stop.csv")
+    turning_loop = pd.read_csv("output/EDA_outputs/severity_from_turning_loop.csv")
+    traffic_signal = pd.read_csv("output/EDA_outputs/severity_from_traffic_signal.csv")
+    traffic_calming = pd.read_csv("output/EDA_outputs/severity_from_traffic_calming.csv")
 
     st.subheader("Stop sign")
     stop = stop.groupby(["severity", "stop"]).first().unstack(level=-1)
@@ -484,10 +484,10 @@ def display_pda():
 
     st.subheader('Output example')
     st.markdown('Decision Tree')
-    output = pd.read_csv('../output/DT_predictions.csv')
+    output = pd.read_csv('output/DT_predictions.csv')
     st.table(output.sample(10).head(10))
     st.markdown('Random Forest')
-    output = pd.read_csv('../output/RF_predictions.csv')
+    output = pd.read_csv('output/RF_predictions.csv')
     st.table(output.sample(10).head(10))
 
 
