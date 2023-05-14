@@ -1,1 +1,3 @@
 #!/bin/bash
+echo 'loading dataset'                                                                                                                                                                                             
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certifica te 'https://docs.google.com/uc?export=download&id=12-2yFZxf5t2M3fGyI3oR6JPz8BTaqw2O' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=12-2yFZxf5t2M3fGyI3oR6JPz8BTaqw2O" -O data/US_Accidents_Dec21_updated.csv  && rm -rf /tmp/cookies.txt             
